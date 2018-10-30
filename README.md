@@ -14,7 +14,7 @@ Currently, the website checks:
 
 ## Precisions
 
-Since the website does not send the mail directly, you are able to copy-paste a good formated mail content and subject to your favourite mailing software. However, please note that the prerequisites for your mail to be valid is the modify the ```Content-Type``` to ```text/plain```. Browse on your the web to find how to do that with your software.
+Since the website does not send the mail directly, you are able to copy-paste a good formated mail content and subject to your favourite mailing software. However, please note that the prerequisite for your mail to be valid is to modify the ```Content-Type``` to ```text/plain```. Browse on your the web to find how to do that with your software.
 
 ## Contribute
 
