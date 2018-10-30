@@ -54,7 +54,7 @@ function verifyMessage(string)
 			res += ("- Your signature is too long. It <b>MUST</b> be a text between 1 and 4 lines, with at least your login.</br>");
 		}
 	}
-	
+
 	return res;
 }
 
@@ -79,7 +79,7 @@ function GetResults(subject, message)
 			result_msg = "Your mail contains the following errors:</br>";
 			result_msg += msg_errors;
 		}
-		else 
+		else
 		{
 			result_msg = "Your mail does not contain any error. You can send it to the ACUs. But remember to change the <i>Content-Type</i> \
 						  to <i>text/plain</i>.";
@@ -110,17 +110,19 @@ function correctSubject(subject) {
 	else {
 		corrected += "[TAG]";
 	}
-	if (topic && topic.length && topic[0].charAt(0) != " ") {
-		topic = " " + topic;
-	}
-	else {
+	if (!topic || !topic.replace(/\s/g, '').length) {
 		corrected += " Topic";
 	}
-	corrected += topic;
+	else {
+		if (topic && topic.length && topic[0].charAt(0) != " ") {
+			topic = " " + topic;
+		}
+		corrected += topic;
+	}
 	return corrected;
 }
 
-function minimizeParagraphs(message) 
+function minimizeParagraphs(message)
 {
 	para = [];
 	var parai = 0;
@@ -145,7 +147,7 @@ function minimizeParagraphs(message)
 			}
 			if (!para[parai].length || para[parai][para[parai].length - 1] == " ") {
 				para[parai] += lines[i];
-			}	
+			}
 			else {
 				para[parai] += (" " + lines[i]);
 			}
@@ -155,7 +157,7 @@ function minimizeParagraphs(message)
 	return para;
 }
 
-function Correct(subject, message) 
+function Correct(subject, message)
 {
 	if (GetResults(subject, message)) {
 		para = minimizeParagraphs(message);
@@ -180,7 +182,7 @@ function Correct(subject, message)
 				}
 			}
 		}
-		if (!isSigned) 
+		if (!isSigned)
 		{
 			res += "</br></br>-- </br>name.lastname</br>I used Netiquette Mail Corrector to correct my mail."
 		}
@@ -188,7 +190,7 @@ function Correct(subject, message)
 		$("#corrected-message").html(res);
 	}
 }
-$(document).ready( function() {	
+$(document).ready( function() {
 	$('.modal').modal();
 
 	$("#verify").click( function() {
@@ -196,7 +198,7 @@ $(document).ready( function() {
 		message = $("#message").val();
 		GetResults(subject, message);
 	});
-	
+
 	$("#correct").click( function() {
 		subject = $("#subject").val();
 		message = $("#message").val();
