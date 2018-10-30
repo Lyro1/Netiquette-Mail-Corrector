@@ -1,6 +1,8 @@
 # Netiquette-Mail-Corrector
 This website allows you to verify that your mail is compliant with the ACU's Netiquette. It is not associated in any way with the ACU's team, EPITA or any official administration. It is based on the rules provided in the Netiquette file from the ACU 2019 team.
 
+Here is the website url: https://lyro1.github.io/Netiquette-Mail-Corrector/
+
 ## Features
 
 Currently, the website checks:
