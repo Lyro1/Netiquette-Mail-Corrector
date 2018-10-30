@@ -12,6 +12,10 @@ Currently, the website checks:
 - No extra blank lines
 - Syntax and presence of signature
 
+## Precisions
+
+Since the website does not send the mail directly, you are able to copy-paste a good formated mail content and subject to your favourite mailing software. However, please note that the prerequisites for your mail to be valid is the modify the ```Content-Type``` to ```text/plain```. Browse on your the web to find how to do that with your software.
+
 ## Contribute
 
 If you notice any bug or error, don't hesitate to fork and submit a pull request. Any help is highly appreciated. If you want to submit design related comments, please fill an issue so that we will be able to discuss the best way to improve the website.
