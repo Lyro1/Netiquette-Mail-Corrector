@@ -129,7 +129,7 @@ function minimizeParagraphs(message)
 	if (lines.length) {
 		para[0] = "";
 	}
-	for(i = 0;i < lines.length;i++) {
+	for(i = 0;i < lines.length && lines[i] != "-- ";i++) {
 		if (!lines[i].replace(/\s/g, '').length) {
 			if (prevlinewasspace) {
 				continue;
