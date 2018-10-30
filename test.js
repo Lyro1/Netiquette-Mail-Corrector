@@ -36,6 +36,7 @@ function verifyMessage(string)
 		if (lines[i] == "-- ") {
 			signature = true;
 			isSigned = true;
+			continue;
 		}
 		if (signature) {
 			signaturelen++;
@@ -61,6 +62,7 @@ function GetResults(subject, message)
 {
 	res = false;
 	result_msg = "";
+	$("#result").removeClass( "green darken-1" );
 	$("#result").addClass("red darken-3");
 	if (!verifySubject(subject)) {
 		result_msg = "Your mail contains the following errors:</br>";
