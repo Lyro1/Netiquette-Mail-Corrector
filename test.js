@@ -106,10 +106,13 @@ function correctSubject(subject) {
 		}
 	}
 	else {
-		tags = "[TAG]";
+		corrected += "[TAG]";
 	}
-	if (topic.length && topic[0].charAt(0) != " ") {
+	if (topic && topic.length && topic[0].charAt(0) != " ") {
 		topic = " " + topic;
+	}
+	else {
+		corrected += " Topic";
 	}
 	corrected += topic;
 	return corrected;
@@ -154,9 +157,6 @@ function Correct(subject, message)
 {
 	if (GetResults(subject, message)) {
 		para = minimizeParagraphs(message);
-		for (i = 0; i < para.length; i++) {
-			console.log(i + ": " + para[i]);
-		}
 		res = "";
 		for (i = 0; i < para.length; i++) {
 			var words = para[i].split(" ");
