@@ -216,5 +216,8 @@ $(document).ready( function() {
 		subject = $("#subject").val();
 		message = $("#message").val();
 		Correct(subject, message);
+		subject = $("#subject").val();
+		message = $("#message").val();
+		GetResults(subject, message);
 	});
 });
