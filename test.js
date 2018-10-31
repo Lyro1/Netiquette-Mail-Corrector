@@ -5,6 +5,11 @@ function verifySubject(string)
 	return /^(\[[A-Z0-9_-]+\])+ [A-Za-z0-9_ ]+$/.test(string);
 }
 
+String.prototype.replaceAll = function(search, replacement) {
+    var target = this;
+    return target.replace(new RegExp(search, 'g'), replacement);
+};
+
 function verifyMessage(string)
 {
 	res = "";
@@ -160,6 +165,7 @@ function minimizeParagraphs(message)
 function Correct(subject, message)
 {
 	if (GetResults(subject, message)) {
+		lines = 1;
 		para = minimizeParagraphs(message);
 		res = "";
 		for (i = 0; i < para.length; i++) {
@@ -171,6 +177,7 @@ function Correct(subject, message)
 				if (linecpt > 60) {
 					res += "</br>";
 					linecpt = 0;
+					lines++;
 				}
 			}
 			if (i < para.length - 1) {
@@ -179,20 +186,26 @@ function Correct(subject, message)
 				}
 				else {
 					res += "</br></br>";
+					lines++;
 				}
 			}
 		}
+		
 		if (!isSigned)
 		{
 			res += "</br></br>-- </br>name.lastname</br>I used Netiquette Mail Corrector to correct my mail."
+			lines += 3;
 		}
-		$("#corrected-subject").html(correctSubject(subject));
-		$("#corrected-message").html(res);
+		res = res.replaceAll("</br>", "\n");
+		
+		$("#subject").val(correctSubject(subject));
+		$("#message").val(res);
+		$("#subject").focus();
+		$("#message").focus();
+		document.getElementById("message").rows = lines;
 	}
 }
 $(document).ready( function() {
-	$('.modal').modal();
-
 	$("#verify").click( function() {
 		subject = $("#subject").val();
 		message = $("#message").val();
