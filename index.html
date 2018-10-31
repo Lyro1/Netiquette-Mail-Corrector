@@ -15,11 +15,11 @@
 		   }
 		   /* label focus color */
 		   .input-field input[type=text]:focus + label {
-			 color: #212121;
+			 color: red;
 		   }
 		   /* label underline focus color */
 		   .input-field input[type=text]:focus {
-			 border-bottom: 1px solid #212121;
+			 border-bottom: 1px solid red;
 			 box-shadow: 0 1px 0 0 #212121;
 		   }
 		   /* valid color */
@@ -50,12 +50,16 @@
 		<div class="container">
 			<h1 class="center-align">Netiquette Mail Corrector</h1>
 			
-			<p>
-				This website allows you to verify that your mail is compliant with the ACU's Netiquette. It is not
-				associated in any way with the ACU's team, EPITA or any official administration. You can find the source
-				code on the official <a target="_blank" href="https://github.com/Lyro1/Netiquette-Mail-Corrector">Github repository of the website</a>. 
-				If you find any error or bug, please fill an issue on the Github repository and/or send a pull request.
-			</p>
+			<div class="row">
+				<div class="col s12">
+					<p>
+						This website allows you to verify that your mail is compliant with the ACU's Netiquette. It is not
+						associated in any way with the ACU's team, EPITA or any official administration. You can find the source
+						code on the official <a target="_blank" href="https://github.com/Lyro1/Netiquette-Mail-Corrector">Github repository of the website</a>. 
+						If you find any error or bug, please fill an issue on the Github repository and/or send a pull request.
+					</p>
+				</div>
+			</div>
 			
 			<div class="row">
 				<div class="col s12">
@@ -82,8 +86,10 @@
 						</div>
 					</div>
 				</form>
-				<button id="correct" class="btn waves-effect waves-light right grey darken-4 modal-trigger" data-target="modal1">Correct</button>
-				<button id="verify" class="btn waves-effect waves-light right grey darken-4">Verify</button>
+				<div class="col s12">
+					<button id="correct" class="btn waves-effect waves-light right grey darken-4">Correct</button>
+					<button id="verify" class="btn waves-effect waves-light right grey darken-4 ">Verify</button>
+				</div>
 			</div>
 			
 			<div class="row">
@@ -94,17 +100,6 @@
 							<p id="result-msg"></p>
 						</div>
 					</div>
-				</div>
-			</div>
-			
-			  <!-- Modal Structure -->
-			<div id="modal1" class="modal">
-				<div class="modal-content">
-					<h4 id="corrected-subject">Your header was empty.</h4>
-					<p id="corrected-message">Your message was empty.</p>
-				</div>
-				<div class="modal-footer">
-					<a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
 				</div>
 			</div>
 			
