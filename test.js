@@ -200,9 +200,9 @@ function Correct(subject, message)
 		
 		$("#subject").val(correctSubject(subject));
 		$("#message").val(res);
+		M.textareaAutoResize($('#message'));
 		$("#subject").focus();
 		$("#message").focus();
-		document.getElementById("message").rows = lines;
 	}
 }
 $(document).ready( function() {
