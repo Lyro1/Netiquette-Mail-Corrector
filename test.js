@@ -39,9 +39,14 @@ function verifyMessage(string)
 			spaces = 0;
 		}
 		if (lines[i] == "-- ") {
-			signature = true;
-			isSigned = true;
-			continue;
+			if ( !lines[i+1].replace(/\s/g, '').length ) {
+				res += ("- Signature is has a wrong synthax. You must have a blank line before the ''-- ''</br>");
+			}
+			else {
+				signature = true;
+				isSigned = true;
+				continue;
+			}
 		}
 		if (signature) {
 			signaturelen++;
