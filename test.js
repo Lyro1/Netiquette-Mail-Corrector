@@ -65,7 +65,7 @@ function verifyMessage(string)
 
 function GetResults(subject, message)
 {
-	res = false;
+	isCorrect = false;
 	result_msg = "";
 	$("#result").removeClass( "green darken-1" );
 	$("#result").addClass("red darken-3");
@@ -89,12 +89,12 @@ function GetResults(subject, message)
 			result_msg = "Your mail does not contain any error. You can send it to the ACUs. But remember to change the <i>Content-Type</i> \
 						  to <i>text/plain</i>.";
 			$("#result").addClass("green darken-1");
-			res = true;
+			isCorrect = true;
 		}
 	}
 	$("#result-msg").html(result_msg);
 	$("#result").css("display", "block");
-	return res;
+	return isCorrect;
 }
 
 function correctSubject(subject) {
@@ -164,7 +164,7 @@ function minimizeParagraphs(message)
 
 function Correct(subject, message)
 {
-	if (GetResults(subject, message)) {
+	if (!GetResults(subject, message)) {
 		lines = 1;
 		para = minimizeParagraphs(message);
 		res = "";
