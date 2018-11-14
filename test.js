@@ -207,12 +207,14 @@ function Correct(subject, message)
 }
 $(document).ready( function() {
 	$("#verify").click( function() {
+		var isSigned = false;
 		subject = $("#subject").val();
 		message = $("#message").val();
 		GetResults(subject, message);
 	});
 
 	$("#correct").click( function() {
+		var isSigned = false;
 		subject = $("#subject").val();
 		message = $("#message").val();
 		Correct(subject, message);
