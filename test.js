@@ -39,7 +39,7 @@ function verifyMessage(string)
 			spaces = 0;
 		}
 		if (lines[i] == "-- ") {
-			if ( !lines[i+1].replace(/\s/g, '').length ) {
+			if ( lines[i-1].replace(/\s/g, '').length > 0) {
 				res += ("- Signature is has a wrong synthax. You must have a blank line before the ''-- ''</br>");
 			}
 			else {
@@ -141,7 +141,7 @@ function minimizeParagraphs(message)
 	if (lines.length) {
 		para[0] = "";
 	}
-	for(i = 0;i < lines.length && lines[i] != "-- ";i++) {
+	for(i = 0; i < lines.length && lines[i] != "-- "; i++) {
 		if (!lines[i].replace(/\s/g, '').length) {
 			if (prevlinewasspace) {
 				continue;
@@ -195,7 +195,6 @@ function Correct(subject, message)
 				}
 			}
 		}
-		
 		if (!isSigned)
 		{
 			res += "</br></br>-- </br>name.lastname</br>I used Netiquette Mail Corrector to correct my mail."
@@ -212,14 +211,14 @@ function Correct(subject, message)
 }
 $(document).ready( function() {
 	$("#verify").click( function() {
-		var isSigned = false;
+		isSigned = false;
 		subject = $("#subject").val();
 		message = $("#message").val();
 		GetResults(subject, message);
 	});
 
 	$("#correct").click( function() {
-		var isSigned = false;
+		isSigned = false;
 		subject = $("#subject").val();
 		message = $("#message").val();
 		Correct(subject, message);
